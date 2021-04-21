@@ -23,8 +23,8 @@ function createChecksum(file, reqPath, projName) {
 	var a = checkSum(data); //Checksum of all the Characters
 	var b = lastFour(data.length); //Checksum of the file length
 	var c = checkSum(relativePath); //Checksum of the file's relative path
-	var checksumID = 'P' + a + '-' + 'L' + b + '-' + 'C' + c + path.extname(file);
-	return checksumID;
+	var checkSumID = 'P' + a + '-' + 'L' + b + '-' + 'C' + c + path.extname(file);
+	return checkSumID;
 }
 
 //This function performs the calculations to actually get the checksum for Path, Length and Characters
