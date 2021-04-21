@@ -1,11 +1,10 @@
 //######################################################################################################
 //
-// artID.js
+// checksum.js
 //
 // Author:
-// Contact:
 //
-// Description: This file creates the Artifact ID that has 3 parts: "Pa-Lb-Cc" and the original filename extension 
+// Description: This file creates the checksum that has 3 parts: "Pa-Lb-Cc" and the original filename extension 
 // for the files we pass through. The "a" is the checksum of all the Characters in the file, "b" is the checksum 
 // of the file length, and "c" is the checksum of the file's relative path.
 //
@@ -14,7 +13,7 @@
 var fs = require('fs');
 var path = require('path');
 
-function createArtID(file, reqPath, projName) {
+function createChecksum(file, reqPath, projName) {
 	var relativePath = path.dirname(path.join(projName, file)) + path.sep; //Gets the relative path 
 
 	//Reads the file and puts to the content into the string
@@ -24,8 +23,8 @@ function createArtID(file, reqPath, projName) {
 	var a = checkSum(data); //Checksum of all the Characters
 	var b = lastFour(data.length); //Checksum of the file length
 	var c = checkSum(relativePath); //Checksum of the file's relative path
-	var artID = 'P' + a + '-' + 'L' + b + '-' + 'C' + c + path.extname(file);
-	return artID;
+	var checksumID = 'P' + a + '-' + 'L' + b + '-' + 'C' + c + path.extname(file);
+	return checksumID;
 }
 
 //This function performs the calculations to actually get the checksum for Path, Length and Characters
@@ -80,4 +79,4 @@ function reverseCheckSum(removed) {
 	return weight;
 }
 
-module.exports = { createArtID };
+module.exports = { createChecksum };
