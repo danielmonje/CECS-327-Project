@@ -1,6 +1,6 @@
 var net = require('net');
 var fs = require('fs');
-var buffer = require('buffer');
+var buffer = require('buffer'); //Handles objects that are used to represent a fixed-length sequence of bytes
 
 var server = net.createServer(function(conn) {
     console.log('server connected');
@@ -10,7 +10,7 @@ var server = net.createServer(function(conn) {
         console.log('data is: \n' + data);
     });
 
-    let fileStream = fs.createWriteStream(FILEPATH + 'output.bin');
+    let fileStream = fs.createWriteStream(FILEPATH + 'out.txt');
     conn.pipe(fileStream);
 });
 
