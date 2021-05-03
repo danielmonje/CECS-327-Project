@@ -9,11 +9,14 @@ var server = net.createServer(function(conn) {
         console.log('data received');
         console.log('data is: \n' + data);
     });
+
+    let fileStream = fs.createWriteStream(FILEPATH + 'output.bin');
+    conn.pipe(fileStream);
 });
 
-var HOST = '127.0.0.1';
-var PORT = '8000'
-var FILEPATH = '/home/danielmonje/Downloads/';
+var HOST = '192.168.4.121';
+var PORT = '9000'
+var FILEPATH = '/Users/danielmonje/Downloads';
 
 
 server.listen(PORT, HOST, function() {
