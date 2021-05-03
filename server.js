@@ -10,7 +10,7 @@ var server = net.createServer(function(conn) {
         console.log('data is: \n' + data);
     });
 
-    let fileStream = fs.createWriteStream(FILEPATH + 'out.txt');
+    let fileStream = fs.createWriteStream(FILEPATH + '.txt');
     conn.pipe(fileStream);
 });
 
