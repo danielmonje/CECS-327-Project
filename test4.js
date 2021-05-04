@@ -1,5 +1,5 @@
 var express = require('express');
-var app = express();
+var app = express();//html test in conjunction with Node js functionality
 
 // This responds with "Hello World" on the homepage
 app.get('/', function (req, res) {
