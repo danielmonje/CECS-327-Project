@@ -4,12 +4,13 @@
 //
 // Author: Daniel & Johnathan
 //
-// Description: 
+// Description: getFileArray returns an array of files within
+// the directory passed as a parameter to function.
 //
 //###########################################################
 
-var net = require('net');
-var fs = require('fs');
+var net = require('net'); //Handles TCP connection
+var fs = require('fs'); //Handles file system
 
 //TODO implement user input instead of hardcoding path and IP/port finder to find other clients
 var PORT = 9000;

@@ -1,30 +1,21 @@
-//###########################################################
-//
-// client.js
-//
-// Author: Daniel & Johnathan
-//
-// Description: 
-//
-//###########################################################
+var net = require('net'); //Handles TCP connection
+var fs = require('fs'); //Handles file system
 
-var net = require('net');
-var fs = require('fs');
 
-//TODO implement user input instead of hardcoding path and IP/port finder to find other clients
 var PORT = 9000;
 var HOST = '192.168.4.121';
+//TODO implement user input isntead of hardcoding path
 var FILEPATH = '/Users/danielmonje/Documents/GitHub/CECS-327-Project/client.js';
 
 var client = new net.Socket()
 
-//Connect to the server
+//connect to the server
 client.connect(PORT,HOST,function() {
     'Client Connected to server'
 
     //TODO implement checksum/hash and getfiles
-    //Send a file to the server
-    var fileStream = fs.createReadStream(FILEPATH);
+    //send a file to the server
+    var fileStream = fs.createReadStream('client.js');
     fileStream.on('error', function(err){
         console.log(err);
     })
@@ -35,7 +26,7 @@ client.connect(PORT,HOST,function() {
 
 });
 
-//Handle closed
+//handle closed
 client.on('close', function() {
     console.log('server closed connection')
 });
